@@ -110,36 +110,7 @@
   </div>
 </footer>
 
-<script>
-document.querySelector('.scroll-top-btn')?.addEventListener('click', function(e) {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-document.querySelector('.nav-toggle')?.addEventListener('click', function() {
-  this.classList.toggle('is-open');
-  document.querySelector('.nav-menu')?.classList.toggle('is-open');
-  this.setAttribute('aria-expanded', this.classList.contains('is-open'));
-});
-
-document.querySelectorAll('.nav-dropdown-btn').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    var parent = this.closest('.nav-dropdown');
-    var isOpen = parent.classList.contains('is-open');
-    document.querySelectorAll('.nav-dropdown.is-open').forEach(function(el) { el.classList.remove('is-open'); });
-    if (!isOpen) parent.classList.add('is-open');
-    this.setAttribute('aria-expanded', !isOpen);
-  });
-});
-
-document.addEventListener('click', function() {
-  document.querySelectorAll('.nav-dropdown.is-open').forEach(function(el) {
-    el.classList.remove('is-open');
-    el.querySelector('.nav-dropdown-btn')?.setAttribute('aria-expanded', 'false');
-  });
-});
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>
