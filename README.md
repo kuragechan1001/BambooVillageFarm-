@@ -1,7 +1,7 @@
 # Bamboo Village Farm
 
 町田の農家「バンブーファーム」のウェブサイトです。  
-**Next.js 14 + TypeScript** で構築しています。
+**Next.js 14 + react** で構築しています。
 
 ## 開発の始め方
 
