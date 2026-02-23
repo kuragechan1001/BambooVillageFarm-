@@ -1,0 +1,47 @@
+/* お問い合わせページ専用 */
+
+.contact,
+.contact-section {
+  background-color: white;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.contact-item h3 {
+  font-size: 21px;
+  margin-bottom: 8px;
+  color: #2e7d32;
+}
+
+.contact-item p {
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.contact-item a {
+  color: #2e7d32;
+  text-decoration: none;
+}

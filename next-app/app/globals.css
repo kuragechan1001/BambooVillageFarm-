@@ -15,91 +15,7 @@ body {
   padding-top: 80px;
 }
 
-/* コンテンツの最大幅・中央寄せ（各セクションで使用） */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
-}
-
-/* ========================================
-   ヒーローセクション（トップページ・写真を背景に表示）
-   ======================================== */
-.hero {
-  background: url("/image/hero-visual.jpg") center center / cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 150px 20px 120px;
-  margin-top: -80px;
-  position: relative;
-  min-height: 70vh;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35);
-  z-index: 0;
-}
-
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
-}
-
-.hero h1 {
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero-subtitle {
-  font-size: 29px;
-  font-weight: 300;
-  margin-bottom: 24px;
-  opacity: 0.95;
-}
-
-.hero-description {
-  font-size: 19px;
-  margin-bottom: 40px;
-  opacity: 0.9;
-}
-
-/* ボタン（「商品を見る」など） */
-.btn {
-  display: inline-block;
-  padding: 14px 32px;
-  background-color: #2e7d32;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.btn-primary {
-  background-color: white;
-  color: #2e7d32;
-}
-
-.btn-primary:hover {
-  background-color: #f5f5f5;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.btn-large {
-  padding: 16px 40px;
-  font-size: 18px;
-}
+/* 大まかなレイアウトは Bootstrap の .container / .row / .col を使用 */
 
 /* セクション共通（各ページの見出し・サブタイトル） */
 section {
@@ -122,357 +38,46 @@ section {
 }
 
 /* ========================================
-   農園についてページ（about.html）
+   スマホ・タブレット用（共通のみ）
    ======================================== */
-.about {
-  background-color: #f9f9f9;
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
 }
 
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-  margin-top: 48px;
-}
+@media (max-width: 480px) {
+  section {
+    padding: 40px 0;
+  }
 
-.about-text .lead {
-  font-size: 21px;
-  font-weight: 500;
-  color: #2e7d32;
-  margin-bottom: 24px;
-}
+  .section-title {
+    font-size: 28px;
+  }
 
-.about-text p {
-  margin-bottom: 24px;
-  line-height: 2;
-}
-
-.about-image img {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  margin-bottom: 2rem;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.about-image img:last-child {
-  margin-bottom: 0;
+  .section-subtitle {
+    font-size: 15px;
+  }
 }
 
 /* ========================================
-   商品一覧ページ（products.html）
+   ヘッダー・ナビゲーション（Header.css から統合）
    ======================================== */
-.products {
-  background-color: white;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
-}
-
-.product-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.product-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.product-image {
-  height: 200px;
-  overflow: hidden;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-card h3 {
-  font-size: 24px;
-  margin: 24px 24px 8px;
-  color: #333;
-}
-
-.product-card p {
-  margin: 0 24px 16px;
-  color: #666;
-  line-height: 1.8;
-}
-
-.product-price {
-  margin: 16px 24px 24px;
-  font-size: 21px;
-  font-weight: 700;
-  color: #2e7d32;
-}
-
-/* ========================================
-   特徴ページ（features.html）
-   ======================================== */
-.features {
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-top: 48px;
-}
-
-.feature-item {
-  background: white;
-  padding: 40px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.feature-item:hover {
-  transform: translateY(-5px);
-}
-
-.feature-icon {
-  font-size: 56px;
-  margin-bottom: 24px;
-}
-
-.feature-item h3 {
-  font-size: 22px;
-  margin-bottom: 16px;
-  color: #2e7d32;
-}
-
-.feature-item p {
-  color: #666;
-  line-height: 1.8;
-}
-
-/* ========================================
-   お問い合わせページ（contact.html）
-   ======================================== */
-.contact {
-  background-color: white;
-}
-
-.contact-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.contact-item {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-.contact-icon {
-  font-size: 40px;
-  flex-shrink: 0;
-}
-
-.contact-item h3 {
-  font-size: 21px;
-  margin-bottom: 8px;
-  color: #2e7d32;
-}
-
-.contact-item p {
-  color: #666;
-  line-height: 1.8;
-  margin: 0;
-}
-
-.contact-item a {
-  color: #2e7d32;
-  text-decoration: none;
-}
-
-/* ========================================
-   フッター（全ページ下部の濃いグレーエリア）
-   ======================================== */
-footer {
-  background-color: #363636;
-  color: white;
-  padding: 48px 32px 24px;
-  position: relative;
-}
-
-.footer-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  padding-bottom: 32px;
-}
-
-/* フッター左側：竹グラフィック + 「Bamboo Village Farm」赤文字 */
-.footer-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.footer-bamboo {
-  width: 60px;
-  height: auto;
-  object-fit: contain;
-}
-
-.footer-logo-text {
-  display: flex;
-  flex-direction: column;
-  font-weight: 700;
-  font-size: 20px;
-  color: #c62828;
-  line-height: 1.3;
-}
-
-.footer-logo-text span {
-  display: block;
-}
-
-/* フッター中央：Facebook・Instagram・Xの丸アイコン */
-.footer-center {
-  display: flex;
-  align-items: center;
-}
-
-.footer-social {
-  display: flex;
-  gap: 12px;
-}
-
-.social-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 18px;
-  transition: opacity 0.3s ease;
-}
-
-.social-icon:hover {
-  opacity: 0.9;
-}
-
-.social-facebook {
-  background-color: #1877F2;
-}
-
-.social-instagram {
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-}
-
-.social-twitter {
-  background-color: #000000;
-}
-
-.social-icon svg {
-  flex-shrink: 0;
-}
-
-/* フッター右側：農園について・活動・参加のリンク一覧 */
-.footer-right {
-  display: flex;
-  gap: 48px;
-}
-
-.footer-nav-col h4 {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 16px;
-  color: white;
-}
-
-.footer-nav-col ul {
-  list-style: none;
-}
-
-.footer-nav-col ul li {
-  margin-bottom: 10px;
-}
-
-.footer-nav-col a {
-  color: rgba(255,255,255,0.9);
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-.footer-nav-col a:hover {
-  color: white;
-}
-
-/* フッター最下部：「©2026 Bamboo Village Farm」 */
-.footer-bottom {
-  text-align: center;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.9);
-  font-size: 14px;
-}
-
-.footer-bottom p {
-  margin: 0;
-}
-
-/* フッター右上：ページトップへ戻る矢印ボタン */
-.scroll-top-btn {
-  position: absolute;
-  top: 24px;
-  right: 32px;
-  width: 44px;
-  height: 44px;
-  background-color: #6F6F6F;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
-  transition: background-color 0.3s ease;
-}
-
-.scroll-top-btn:hover {
-  background-color: #5a5a5a;
-  color: white;
-}
-
-/* ========================================
-   ヘッダー（全ページ上部の白いナビゲーションバー）
-   ======================================== */
-header {
+.header {
   position: fixed;
   top: 0;
   left: 0;
@@ -482,7 +87,6 @@ header {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* ヘッダー内：ロゴとメニューを横並びにする */
 .main-nav {
   max-width: 1200px;
   margin: 0 auto;
@@ -490,9 +94,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  position: relative;
 }
 
-/* ヘッダー左：ロゴ画像 + 「Bamboo Village Farm」テキスト */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -502,7 +107,6 @@ header {
   margin-left: -120px;
 }
 
-/* ヘッダーロゴ画像（円形） */
 .nav-logo-img {
   width: 48px;
   height: 48px;
@@ -516,12 +120,45 @@ header {
   color: #333;
 }
 
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
 .nav-menu {
   list-style: none;
-  display: flex;
-  gap: 8px;
   margin: 0;
   padding: 0;
+  display: flex;
+  gap: 8px;
 }
 
 .nav-item {
@@ -545,7 +182,6 @@ header {
   color: #2e7d32;
 }
 
-/* ヘッダー：クリックで開くドロップダウンメニュー（農園について等のサブ項目） */
 .nav-dropdown-menu {
   position: absolute;
   top: 125%;
@@ -586,54 +222,23 @@ header {
   background-color: rgba(255,255,255,0.15);
 }
 
-/* スマホ用：ハンバーガーメニュー（三本線）ボタン ※PCでは非表示 */
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #333;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.nav-toggle.is-open span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
-}
-
-.nav-toggle.is-open span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle.is-open span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* ========================================
-   スマホ・タブレット用（画面幅768px以下）
-   ======================================== */
 @media (max-width: 768px) {
-  body {
-    padding-top: 60px;
+  .main-nav {
+    padding: 12px 16px;
   }
 
-  /* ハンバーガーメニューボタンを表示 */
+  .nav-logo {
+    margin-left: 0;
+  }
+
+  .nav-logo-text {
+    font-size: 16px;
+  }
+
   .nav-toggle {
     display: flex;
   }
 
-  /* メニューを縦並び・下に展開 */
   .nav-menu {
     position: absolute;
     top: 100%;
@@ -668,7 +273,6 @@ header {
     border-bottom: none;
   }
 
-  /* ドロップダウンをメニュー内に展開（PCの.nav-dropdown-menuと同じスタイル） */
   .nav-dropdown-menu {
     position: static;
     display: none;
@@ -687,81 +291,367 @@ header {
     padding: 10px 16px 10px 32px;
     color: #ffffff;
     border-bottom: 1px solid rgba(255,255,255,0.2);
-    transition: background-color 0.2s ease;
   }
 
   .nav-dropdown-menu li:last-child a {
     border-bottom: none;
   }
+}
 
-  .nav-dropdown-menu a:hover {
-    background-color: rgba(255,255,255,0.15);
+/* ========================================
+   フッター（Footer.css から統合）
+   ======================================== */
+.footer {
+  background-color: #363636;
+  background-image: url("/image/footer_background.png");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  color: white;
+  padding: 48px 32px 24px;
+  position: relative;
+}
+
+.scroll-top-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  width: 44px;
+  height: 44px;
+  background-color: #6F6F6F;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  background-color: #5a5a5a;
+}
+
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  padding-bottom: 32px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-bamboo {
+  width: 60px;
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  font-size: 20px;
+  color: #c62828;
+  line-height: 1.3;
+}
+
+.footer-center {
+  display: flex;
+  align-items: center;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.social-icon:hover {
+  opacity: 0.9;
+}
+
+.social-facebook {
+  background-color: #1877F2;
+}
+
+.social-instagram {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.social-twitter {
+  background-color: #000000;
+}
+
+.footer-right {
+  display: flex;
+  gap: 48px;
+}
+
+.footer-nav-col h4 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: white;
+}
+
+.footer-nav-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-nav-col li {
+  margin-bottom: 10px;
+}
+
+.footer-nav-col a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-col a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.9);
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 32px 16px 24px;
+    background-image: none;
   }
 
-  .main-nav {
-    flex-wrap: wrap;
-    position: relative;
+  .scroll-top-btn {
+    right: 16px;
+    top: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
   }
 
-  /* ヒーローセクションの余白・文字サイズ調整 */
-  .hero {
-    padding: 100px 20px 80px;
-    margin-top: -60px;
-  }
-
-  .hero h1 {
-    font-size: 32px;
-  }
-
-  .hero-subtitle {
-    font-size: 22px;
-  }
-
-  .hero-description {
-    font-size: 16px;
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
-
-  /* 農園について：画像とテキストを縦並びに */
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  /* 商品カード・特徴カードを1列に */
-  .product-grid,
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* フッターを縦並び・中央寄せに */
   .footer-main {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 28px;
+    padding-bottom: 24px;
   }
 
   .footer-left {
     flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-bamboo {
+    width: 48px;
+  }
+
+  .footer-logo-text {
+    font-size: 18px;
   }
 
   .footer-right {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 24px;
   }
 
   .footer-nav-col h4 {
     text-align: center;
+    font-size: 15px;
+    margin-bottom: 12px;
   }
 
-  /* スクロールトップボタンの位置調整 */
-  .scroll-top-btn {
-    right: 16px;
-    top: 16px;
+  .footer-nav-col li {
+    margin-bottom: 8px;
+  }
+
+  .footer-nav-col a {
+    font-size: 13px;
+  }
+
+  .footer-bottom {
+    padding-top: 20px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 24px 12px 20px;
+  }
+
+  .footer-main {
+    gap: 24px;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .footer-social {
+    gap: 8px;
+  }
+}
+
+/* ========================================
+   トップページ・
+   ======================================== */
+.hero {
+  background: url("/image/home.png") center center / cover no-repeat;
+  color: white;
+  margin-top: -80px;
+  position: relative;
+  min-height: 70vh;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 0;
+}
+
+.hero h1 {
+  font-size: 200px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  line-height: 1.1;
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", "MS PMincho", "Times New Roman", serif;
+}
+
+.hero .hero-description {
+  font-size: 48px;
+  text-align: center;
+  opacity: 0.9;
+  width: 100%;
+  display: block;
+}
+
+/* ---------- トップページ・モバイル用：画面幅768px以下） ---------- */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 150px;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+    padding-top: 150px;
+  }
+
+  .hero .hero-description {
+    font-size: 24px;
+  }
+}
+
+/* ========================================
+   セクション区切り線（中央から伸びるアニメーション・PC/モバイル共通）
+   適用：トップページの「農園について」と「今週の販売野菜」の間
+   ======================================== */
+.section-divider-line {
+  display: block;
+  position: relative;
+  height: 1px;
+}
+.section-divider-line::after {
+  background: #000;
+  content: "";
+  display: block;
+  height: 1px;
+  width: 0;
+  transform: translateX(-50%);
+  transition: 2.2s cubic-bezier(0.22, 1, 0.36, 1);
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+}
+.section-divider-line.is-animated::after {
+  width: 100%;
+}
+
+/* ========================================
+   野菜カルーセル・モバイル用（768px以下）
+   左右のスライドを非表示、中央のみ表示してはみ出し防止
+   ======================================== */
+@media (max-width: 768px) {
+  .vegetable-carousel {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    gap: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .vegetable-carousel-side {
+    display: none !important;
+  }
+  .vegetable-carousel-center {
+    width: auto !important;
+    flex: 1 1 0;
+    min-width: 0;
+    max-width: none;
+    transform: none !important;
+  }
+  .vegetable-carousel-center img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 220px;
+    object-fit: cover;
+  }
+  .vegetable-carousel-center p {
+    margin-top: 6px !important;
+    margin-bottom: 0 !important;
+    font-size: 14px !important;
+  }
+  /* 矢印ボタン小型化で詰める */
+  .vegetable-carousel .rounded-circle {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 20px !important;
+  }
+  /* 今月の販売野菜セクション・モバイルで余白詰め */
+  .section-vegetable .container h3 {
+    margin-bottom: 16px !important;
+  }
+  .section-vegetable .section-vegetable-btn {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
   }
 }
 
