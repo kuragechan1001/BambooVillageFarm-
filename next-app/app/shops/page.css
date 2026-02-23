@@ -1,0 +1,9 @@
+/* 取扱店舗ページ専用のスタイル（このページだけで使う） */
+
+.shops {
+  background-color: #fff;
+}
+
+.shops .section-title {
+  color: #2e7d32;
+}

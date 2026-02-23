@@ -18,15 +18,15 @@ export default function Header() {
   };
 
   return (
-    <header>
+    <header className="header">
       <nav className="main-nav">
         <Link href="/" className="nav-logo" onClick={closeAll}>
           <Image
             src="/image/logo.jpg"
             alt="Bamboo Village Farm"
-            className="nav-logo-img"
             width={48}
             height={48}
+            className="nav-logo-img"
           />
           <span className="nav-logo-text">Bamboo Village Farm</span>
         </Link>
@@ -45,7 +45,7 @@ export default function Header() {
           <li className={`nav-item nav-dropdown ${openDropdown === "about" ? "is-open" : ""}`}>
             <button
               type="button"
-              className="nav-link nav-dropdown-btn"
+              className="nav-dropdown-btn"
               aria-haspopup="true"
               aria-expanded={openDropdown === "about"}
               onClick={() => toggleDropdown("about")}
@@ -61,7 +61,7 @@ export default function Header() {
           <li className={`nav-item nav-dropdown ${openDropdown === "service" ? "is-open" : ""}`}>
             <button
               type="button"
-              className="nav-link nav-dropdown-btn"
+              className="nav-dropdown-btn"
               aria-haspopup="true"
               aria-expanded={openDropdown === "service"}
               onClick={() => toggleDropdown("service")}
@@ -78,7 +78,7 @@ export default function Header() {
           <li className={`nav-item nav-dropdown ${openDropdown === "contact" ? "is-open" : ""}`}>
             <button
               type="button"
-              className="nav-link nav-dropdown-btn"
+              className="nav-dropdown-btn"
               aria-haspopup="true"
               aria-expanded={openDropdown === "contact"}
               onClick={() => toggleDropdown("contact")}

@@ -8,7 +8,7 @@ export default function Footer() {
   };
 
   return (
-    <footer>
+    <footer className="footer">
       <button
         type="button"
         className="scroll-top-btn"
@@ -21,11 +21,6 @@ export default function Footer() {
         <div className="footer-left">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/image/footer.png" alt="" className="footer-bamboo" />
-          <div className="footer-logo-text">
-            <span>Bamboo</span>
-            <span>Village</span>
-            <span>Farm</span>
-          </div>
         </div>
         <div className="footer-center">
           <div className="footer-social">
