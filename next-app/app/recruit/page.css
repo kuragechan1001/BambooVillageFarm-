@@ -1,5 +1,41 @@
-/* 採用情報ページ専用 */
+/* 採用情報ページ：アニメーションとモバイル用のみ */
 
-.recruit {
-  background-color: white;
+.recruit-hero-title {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.recruit-hero-title--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.recruit-content-block {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.recruit-content-block.recruit-block--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .recruit-hero {
+    height: 200px !important;
+  }
+  .recruit-hero-title {
+    font-size: 32px !important;
+  }
+  .recruit-content-block {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .recruit-content-block h2 {
+    font-size: 22px !important;
+  }
+  .recruit-content-block p {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
 }
