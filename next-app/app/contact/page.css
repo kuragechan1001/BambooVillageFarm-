@@ -1,47 +1,41 @@
-/* お問い合わせページ専用 */
+/* お問い合わせページ：アニメーションとモバイル用のみ */
 
-.contact,
-.contact-section {
-  background-color: white;
+/* ヒーロー・タイトルのフェードイン */
+.contact-hero-title {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.contact-hero-title--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.contact-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
+/* 連絡先・アクセスブロックのスクロールアニメ */
+.contact-info-block {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.contact-info-block.contact-block--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.contact-access {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out 0.1s, transform 0.6s ease-out 0.1s;
+}
+.contact-access.contact-block--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.contact-item {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-}
-
-.contact-icon {
-  font-size: 40px;
-  flex-shrink: 0;
-}
-
-.contact-item h3 {
-  font-size: 21px;
-  margin-bottom: 8px;
-  color: #2e7d32;
-}
-
-.contact-item p {
-  color: #666;
-  line-height: 1.8;
-  margin: 0;
-}
-
-.contact-item a {
-  color: #2e7d32;
-  text-decoration: none;
+@media (max-width: 768px) {
+  .contact-hero {
+    height: 200px !important;
+  }
+  .contact-hero-title {
+    font-size: 32px !important;
+  }
 }

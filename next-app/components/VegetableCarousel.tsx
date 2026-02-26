@@ -47,7 +47,7 @@ export default function VegetableCarousel() {
         style={{ width: 44, height: 44, cursor: "pointer" }}
         aria-label="前へ"
       >
-        ‹
+        ◀︎
       </button>
 
       <div
@@ -70,7 +70,7 @@ export default function VegetableCarousel() {
         style={{ width: 44, height: 44, cursor: "pointer" }}
         aria-label="次へ"
       >
-        ›
+        ▶︎
       </button>
 
       <div className="vegetable-carousel-side text-center" style={{ width: sideSize.width }}>
