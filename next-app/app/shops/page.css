@@ -1,9 +1,44 @@
-/* 取扱店舗ページ専用のスタイル（このページだけで使う） */
+/* 取扱店舗ページ：アニメーションとモバイル用のみ */
 
-.shops {
-  background-color: #fff;
+.shops-hero-title {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.shops-hero-title--visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.shops .section-title {
-  color: #2e7d32;
+.shops-hero-desc {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.7s ease-out 0.15s, transform 0.7s ease-out 0.15s;
+}
+.shops-hero-desc--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shops-content-block {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.shops-content-block.shops-block--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .shops-hero {
+    height: 200px !important;
+  }
+  .shops-hero-title {
+    font-size: 32px !important;
+  }
+  .shops-content-block {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
 }
