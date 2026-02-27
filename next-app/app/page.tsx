@@ -142,7 +142,7 @@ export default function Home() {
               </div>
               <div className="text-center mt-4 mb-2">
                 <Link
-                  href="/events"
+                  href="/events/make-miso"
                   className="button text-center py-2  fw-bold fs-5 rounded-3 text-decoration-none d-inline-block"
                   style={{ backgroundColor: "#C9A86A", color: "black", padding: "100px" }}
                 >

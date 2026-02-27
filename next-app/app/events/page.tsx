@@ -1,14 +1,8 @@
 import "./page.css";
+import EventsList from "./EventsList";
 
-export const metadata = { title: "イベント｜バンブーファーム" };
+export const metadata = { title: "イベント一覧｜バンブーファーム" };
 
 export default function EventsPage() {
-  return (
-    <section className="events">
-      <div className="container">
-        <h2 className="section-title">イベント</h2>
-        <p className="section-subtitle">準備中です。</p>
-      </div>
-    </section>
-  );
+  return <EventsList />;
 }
