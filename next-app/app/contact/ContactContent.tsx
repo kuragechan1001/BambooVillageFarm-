@@ -53,10 +53,11 @@ export default function ContactContent() {
       </div>
 
       <div className="container bg-white pt-4 pb-4 mt-0">
-        <div
-          ref={contactRef}
-          className={`mb-4 contact-info-block ${contactVisible ? "contact-block--visible" : ""}`}
-        >
+        <div className="mx-auto" style={{ maxWidth: 720 }}>
+          <div
+            ref={contactRef}
+            className={`mb-4 contact-info-block ${contactVisible ? "contact-block--visible" : ""}`}
+          >
           <h2 className="fs-3 fw-bold text-dark mb-3">お問い合わせ</h2>
           <dl className="contact-dl m-0 p-0">
             <dt className="small text-secondary mb-1">電話番号</dt>
@@ -91,6 +92,7 @@ export default function ContactContent() {
             <p className="mb-0 text-dark" style={{ fontSize: 16, lineHeight: 1.8 }}>
               住所: 東京都町田市下小山田町2494
             </p>
+          </div>
           </div>
         </div>
       </div>
