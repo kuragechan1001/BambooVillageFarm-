@@ -8,7 +8,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="footer">
+    <footer
+      className="footer"
+      style={{
+        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/footer_background.png")`,
+      }}
+    >
       <button
         type="button"
         className="scroll-top-btn"
@@ -20,7 +25,7 @@ export default function Footer() {
       <div className="footer-main">
         <div className="footer-left">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/image/footer.png" alt="" className="footer-bamboo" />
+          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/footer.png`} alt="" className="footer-bamboo" />
         </div>
         <div className="footer-center">
           <div className="footer-social">

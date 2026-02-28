@@ -26,7 +26,7 @@ export default function EventsMisoPage() {
         <div className="mb-4 d-flex justify-content-center">
           <div style={{ maxWidth: 900, width: "100%" }}>
             <Image
-              src="/image/make_miso.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/make_miso.png`}
               alt="みそ作り体験の様子"
               width={900}
               height={600}

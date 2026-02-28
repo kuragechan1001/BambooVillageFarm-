@@ -22,7 +22,7 @@ export default function Header() {
       <nav className="main-nav">
         <Link href="/" className="nav-logo" onClick={closeAll}>
           <Image
-            src="/image/logo.jpg"
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/logo.jpg`}
             alt="Bamboo Village Farm"
             width={48}
             height={48}

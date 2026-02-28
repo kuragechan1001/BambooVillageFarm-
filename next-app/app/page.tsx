@@ -9,7 +9,12 @@ export default function Home() {
   return (
     <>
       {/* ヒーローセクション */}
-      <section className="hero">
+      <section
+        className="hero"
+        style={{
+          background: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/home.png) center center / cover no-repeat`,
+        }}
+      >
         <div className="hero-overlay" aria-hidden />
         <div className="container position-relative py-5">
           <div className="row">
@@ -133,7 +138,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3 w-100 d-flex justify-content-end">
                   <Image
-                    src="/image/been.png"
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/been.png`}
                     alt="味噌作り体験のイメージ"
                     width={100}
                     height={100}
@@ -167,7 +172,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3 w-100 d-flex justify-content-end">
                   <Image
-                    src="/image/veg2.png"
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/veg2.png`}
                     alt="野菜2のイメージ"
                     width={100}
                     height={100}
@@ -201,7 +206,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3 w-100 d-flex justify-content-end">
                   <Image
-                    src="/image/veg1.png"
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/veg1.png`}
                     alt="野菜1のイメージ"
                     width={100}
                     height={100}
@@ -235,7 +240,7 @@ export default function Home() {
                 </div>
                 <div className="mt-3 w-100 d-flex justify-content-end">
                   <Image
-                    src="/image/veg2.png"
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/veg2.png`}
                     alt="野菜2のイメージ"
                     width={100}
                     height={100}

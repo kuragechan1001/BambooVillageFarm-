@@ -44,9 +44,9 @@ export default function AboutPage() {
           </div>
           <div className="about-image">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/image/img.png" alt="農場の風景" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/img.png`} alt="農場の風景" />
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/image/imge2.png" alt="畑の様子" />
+            <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/imge2.png`} alt="畑の様子" />
           </div>
         </div>
       </div>

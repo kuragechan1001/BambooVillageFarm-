@@ -34,7 +34,7 @@ export default function RecruitContent() {
         style={{ height: 280 }}
       >
         <Image
-          src="/image/recrute.png"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/recrute.png`}
           alt=""
           fill
           style={{ objectFit: "cover", objectPosition: "center center" }}

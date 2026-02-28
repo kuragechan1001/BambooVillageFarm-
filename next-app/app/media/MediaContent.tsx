@@ -134,7 +134,7 @@ export default function MediaContent() {
             }}
           >
             <Image
-              src="/image/medea2.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/medea2.png`}
               alt="工藤阿須加が行く 農業始めちゃいました に出演した様子"
               width={900}
               height={260}
@@ -195,7 +195,7 @@ export default function MediaContent() {
             }}
           >
             <Image
-              src="/image/medea1.png"
+              src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/medea1.png`}
               alt="月曜から夜ふかしに出演した様子"
               width={900}
               height={260}

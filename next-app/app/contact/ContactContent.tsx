@@ -38,7 +38,7 @@ export default function ContactContent() {
         style={{ height: 280 }}
       >
         <Image
-          src="/image/contact.png"
+          src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/contact.png`}
           alt=""
           fill
           style={{ objectFit: "cover", objectPosition: "center 40%" }}
