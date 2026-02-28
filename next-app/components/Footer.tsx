@@ -11,7 +11,7 @@ export default function Footer() {
     <footer
       className="footer"
       style={{
-        backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/footer_background.png")`,
+        backgroundImage: `url("${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/footer_background.png")`,
       }}
     >
       <button
