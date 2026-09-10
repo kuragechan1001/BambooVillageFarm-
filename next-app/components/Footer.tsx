@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 
+const BASE = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
 export default function Footer() {
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -11,7 +13,8 @@ export default function Footer() {
     <footer
       className="footer"
       style={{
-        backgroundImage: `url("${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/footer_background.png")`,
+        // ダブルクォートだと HTML の style="..." が壊れるので、単一クォートにする
+        backgroundImage: `url('${BASE}/image/footer_background.png')`,
       }}
     >
       <button
@@ -23,10 +26,8 @@ export default function Footer() {
         ↑
       </button>
       <div className="footer-main">
-        <div className="footer-left">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={`${process.env.NEXT_PUBLIC_BASE_PATH || ""}/image/footer.png`} alt="" className="footer-bamboo" />
-        </div>
+        {/* 左は background 画像（竹＋文字）が見えるので、別の img は置かない */}
+        <div className="footer-left" aria-hidden="true" />
         <div className="footer-center">
           <div className="footer-social">
             <a

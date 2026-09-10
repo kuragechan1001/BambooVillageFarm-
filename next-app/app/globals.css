@@ -8,11 +8,25 @@
 }
 
 /* ページ全体の基本スタイル */
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Meiryo", sans-serif;
   line-height: 1.8;
   color: #333;
   padding-top: 80px;
+  min-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* メインを伸ばして、フッターを常に画面下に固定（コンテンツが短いときも浮き上がらない） */
+.page-main {
+  flex: 1 0 auto;
+  width: 100%;
 }
 
 /* 大まかなレイアウトは Bootstrap の .container / .row / .col を使用 */
@@ -303,13 +317,15 @@ section {
    ======================================== */
 .footer {
   background-color: #363636;
-  background-image: url("/image/footer_background.png");
+  /* 画像は Footer.tsx のインライン style で指定（GitHub Pages の basePath 対応） */
   background-position: left center;
   background-repeat: no-repeat;
   background-size: auto 100%;
   color: white;
   padding: 48px 32px 24px;
   position: relative;
+  width: 100%;
+  flex-shrink: 0;
 }
 
 .scroll-top-btn {
@@ -337,24 +353,17 @@ section {
 .footer-main {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: flex-start;
   gap: 40px;
   padding-bottom: 32px;
 }
 
 .footer-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.footer-bamboo {
-  width: 60px;
-  height: auto;
-  object-fit: contain;
+  /* 背景画像の竹＋文字が左に出るので、スペースだけ確保 */
+  min-width: 180px;
+  min-height: 80px;
 }
 
 .footer-logo-text {
@@ -369,6 +378,7 @@ section {
 .footer-center {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .footer-social {
@@ -450,10 +460,37 @@ section {
   margin: 0;
 }
 
+@media (max-width: 992px) {
+  .footer {
+    /* タブレット幅あたりで背景の「Bamboo Village Farm」文字とリンクが重なるので、背景画像をオフにして黒一色に */
+    background-image: none !important;
+    background-color: #1a1a1a;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 28px;
+    padding-bottom: 24px;
+  }
+
+  .footer-left {
+    display: none;
+  }
+
+  .footer-right {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 32px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 32px 16px 24px;
-    background-image: none;
+    background-image: none !important;
+    background-color: #1a1a1a;
   }
 
   .scroll-top-btn {
@@ -462,23 +499,6 @@ section {
     width: 40px;
     height: 40px;
     font-size: 18px;
-  }
-
-  .footer-main {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 28px;
-    padding-bottom: 24px;
-  }
-
-  .footer-left {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .footer-bamboo {
-    width: 48px;
   }
 
   .footer-logo-text {
@@ -607,48 +627,141 @@ section {
 }
 
 /* ========================================
-   野菜カルーセル・モバイル用（768px以下）
-   左右のスライドを非表示、中央のみ表示してはみ出し防止
+   野菜カルーセル
    ======================================== */
+.vegetable-carousel {
+  display: flex;
+  flex-wrap: nowrap; /* 折り返すと右画像が下に落ちるので禁止 */
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  padding: 0 8px;
+}
+
+.vegetable-carousel-side {
+  flex: 0 0 180px;
+  width: 180px;
+  max-width: 18vw;
+  overflow: hidden; /* スライドアニメではみ出さない */
+  position: relative;
+}
+
+.vegetable-carousel-side img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.vegetable-carousel-center {
+  flex: 0 1 360px;
+  width: 360px;
+  max-width: 42vw;
+  z-index: 2;
+  overflow: hidden; /* スライドアニメではみ出さない */
+  position: relative;
+}
+
+.vegetable-carousel-center img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: block;
+}
+
+.vegetable-carousel-slide {
+  width: 100%;
+}
+
+.vegetable-carousel-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(108, 117, 125, 0.75);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.vegetable-carousel-btn:hover:not(:disabled) {
+  background-color: rgba(108, 117, 125, 0.95);
+  transform: scale(1.06);
+}
+
+.vegetable-carousel-btn:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* タブレット〜中幅：左右を隠して中央＋矢印だけ（はみ出し防止） */
+@media (max-width: 1100px) {
+  .vegetable-carousel-side {
+    display: none;
+  }
+
+  .vegetable-carousel-center {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 420px;
+  }
+
+  .vegetable-carousel-center img {
+    height: auto;
+    max-height: 360px;
+    aspect-ratio: 9 / 10;
+  }
+}
+
+/* スマホ */
 @media (max-width: 768px) {
   .vegetable-carousel {
-    flex-wrap: nowrap;
-    overflow: hidden;
-    gap: 6px;
-    padding-left: 4px;
-    padding-right: 4px;
+    gap: 8px;
+    padding: 0 4px;
   }
+
   .vegetable-carousel-side {
-    display: none !important;
+    display: none;
   }
+
   .vegetable-carousel-center {
-    width: auto !important;
     flex: 1 1 0;
     min-width: 0;
     max-width: none;
-    transform: none !important;
   }
+
   .vegetable-carousel-center img {
-    width: 100% !important;
-    height: auto !important;
+    width: 100%;
+    height: auto;
     max-height: 220px;
-    object-fit: cover;
+    aspect-ratio: auto;
   }
+
   .vegetable-carousel-center p {
-    margin-top: 6px !important;
-    margin-bottom: 0 !important;
-    font-size: 14px !important;
+    font-size: 14px;
   }
-  /* 矢印ボタン小型化で詰める */
-  .vegetable-carousel .rounded-circle {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 20px !important;
+
+  .vegetable-carousel-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
-  /* 今月の販売野菜セクション・モバイルで余白詰め */
+
   .section-vegetable .container h3 {
     margin-bottom: 16px !important;
   }
+
   .section-vegetable .section-vegetable-btn {
     padding-top: 16px !important;
     padding-bottom: 16px !important;
